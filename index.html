@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thabani Jason Moyo | Cloud & DevOps Engineer</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #0f172a;
+      --accent-color: #45ffca;
+      --dark-bg: #0f172a;
+      --light-bg: #f8f9fa;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      scroll-behavior: smooth;
+      background: var(--light-bg);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* Fix for navbar overlapping sections */
+    section {
+      scroll-margin-top: 90px;
+      min-height: auto;
+      padding: 6rem 0;
+    }
+
+    /* Header & Navigation */
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+
+    .navbar-brand span {
+      color: var(--primary-color);
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: var(--text-dark) !important;
+      transition: all 0.3s ease;
+      margin: 0 10px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 6rem 1rem;
+      position: relative;
+      overflow: hidden;
+      scroll-margin-top: 0;
+    }
+
+    .hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(13, 110, 253, 0.1) 0%, transparent 50%);
+  pointer-events: none; /* ✅ THIS FIXES THE BUTTON */
+}
+
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .hero p.lead {
+      font-size: 1.4rem;
+      opacity: 0.9;
+    }
+
+    .hero-btns .btn {
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin: 5px;
+    }
+
+    .hero-btns .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Social Icons */
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      margin: 0 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px) rotate(5deg);
+    }
+
+    /* Section Styling */
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 3rem;
+      font-weight: 700;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+
+    /* Cards */
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      overflow: hidden;
+      background: white;
+      height: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .skill-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      text-align: center;
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .skill-card:hover {
+      background: var(--primary-color);
+      color: white;
+      transform: translateY(-5px);
+    }
+
+    .project-card {
+      border-left: 5px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-left-color: var(--accent-color);
+    }
+
+    /* Certification Cards */
+    .certification-card {
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .certification-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .cert-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary-color);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Lists */
+    .styled-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .styled-list li {
+      padding: 8px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .styled-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+
+    /* Timeline */
+    .timeline-item {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 30px;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary-color);
+    }
+
+    /* Contact Section */
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .contact-info i {
+      width: 40px;
+      height: 40px;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    /* Floating Action Bar */
+    .floating-bar {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .floating-bar a,
+    .floating-bar button {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    }
+
+    .floating-bar a:hover,
+    .floating-bar button:hover {
+      background: #0b5ed7;
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary-color);
+      color: #cbd5f5;
+      padding: 2rem 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
+
+    .dark-mode .card,
+    .dark-mode .skill-card,
+    .dark-mode .certification-card {
+      background: #1e1e1e;
+      color: #f1f1f1;
+    }
+
+    .dark-mode .nav-link {
+      color: #f1f1f1 !important;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p.lead {
+        font-size: 1.2rem;
+      }
+      
+      .floating-bar {
+        bottom: 20px;
+        right: 20px;
+      }
+      
+      .floating-bar a,
+      .floating-bar button {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+      }
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Progress Bars */
+    .progress-bar-custom {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Custom Button */
+    .btn-custom {
+      background: linear-gradient(45deg, var(--primary-color), #0b5ed7);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3);
+      color: white;
+    }
+
+    .btn-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      border-radius: 100%;
+      transform: scale(1, 1) translate(-50%);
+      transform-origin: 50% 50%;
+    }
+
+    .btn-custom:focus:not(:active)::after {
+      animation: ripple 1s ease-out;
+    }
+
+    @keyframes ripple {
+      0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(20, 20);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm fade-in">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      Thabani <span>Moyo</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#certifications">Certifications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 fade-in" data-aos="fade-right">
+        <h1 class="fw-bold mb-3">Thabani Jason Moyo</h1>
+        <p class="lead mb-4">Aspiring Cloud & DevOps Engineer</p>
+        <p class="mb-4">Phagwara, Punjab, India · +91 7901887838 · Thabani070801@gmail.com</p>
+        
+        <div class="social-icons mb-4">
+          <a href="https://github.com/JasonMoyo" target="_blank" title="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/thabani-moyo-170750326" target="_blank" title="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="mailto:Thabani070801@gmail.com" title="Email">
+            <i class="bi bi-envelope"></i>
+          </a>
+          <a href="tel:+917901887838" title="Call">
+            <i class="bi bi-phone"></i>
+          </a>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary btn-lg me-2">
+            View Projects <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+          <!-- Updated CV download link -->
+          <a href="certificates/thabani-jason-moyo-cv.pdf"
+   class="btn btn-primary"
+   download>
+  Download CV
+</a>
+
+<a href="certificates/thabani-jason-moyo-cv.pdf"
+   class="btn btn-outline-secondary"
+   target="_blank">
+  View CV
+</a>
+
+
+
+        </div>
+      </div>
+      <div class="col-lg-4 text-center" data-aos="fade-left">
+        <div class="position-relative">
+          <div class="rounded-circle bg-primary bg-opacity-10 p-3 d-inline-block">
+            <i class="bi bi-laptop text-primary" style="font-size: 8rem;"></i>
+          </div>
+          <div class="position-absolute top-0 start-100 translate-middle">
+            <span class="badge bg-primary p-2">AWS</span>
+          </div>
+          <div class="position-absolute bottom-0 end-100 translate-middle">
+            <span class="badge bg-success p-2">DevOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">About Me</h2>
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="card p-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="row align-items-center">
+            <div class="col-lg-8">
+              <p class="lead mb-4">
+                I am an aspiring Cloud Computing Engineer with hands-on experience in AWS, Linux, and cloud deployments.
+                I have designed and deployed real-world applications using EC2, Auto Scaling Groups, and Application Load Balancers.
+              </p>
+              <p class="mb-4">
+                Currently, I am undergoing a 6-month industry-oriented training and internship in Cloud Computing and DevOps,
+                with a strong interest in automation, scalability, and cloud security.
+              </p>
+              <div class="d-flex gap-3 mt-4">
+                <div class="text-center">
+                  <h3 class="text-primary fw-bold">5+</h3>
+                  <p class="text-muted">Projects</p>
+                </div>
+                <div class="text-center">
+                  <h3 class="text-primary fw-bold">4+</h3>
+                  <p class="text-muted">Technologies</p>
+                </div>
+                <div class="text-center">
+                  <h3 class="text-primary fw-bold">6</h3>
+                  <p class="text-muted">Certifications</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 text-center">
+              <div class="bg-light p-4 rounded shadow">
+                <i class="bi bi-cloud-arrow-up text-primary" style="font-size: 4rem;"></i>
+                <h5 class="mt-3">Cloud Specialist</h5>
+                <p class="text-muted">AWS | DevOps | Automation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Technical Skills</h2>
+    <div class="row g-4">
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="skill-card">
+          <i class="bi bi-code-slash text-primary mb-3" style="font-size: 2rem;"></i>
+          <h5>Programming</h5>
+          <p>Python · C · Java · PHP</p>
+          <div class="progress mt-2">
+            <div class="progress-bar-custom" style="width: 85%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="skill-card">
+          <i class="bi bi-cloud text-primary mb-3" style="font-size: 2rem;"></i>
+          <h5>Cloud & DevOps</h5>
+          <p>AWS (EC2, S3, IAM) · CI/CD</p>
+          <div class="progress mt-2">
+            <div class="progress-bar-custom" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="skill-card">
+          <i class="bi bi-terminal text-primary mb-3" style="font-size: 2rem;"></i>
+          <h5>Systems</h5>
+          <p>Linux · Git · GitHub · Bash</p>
+          <div class="progress mt-2">
+            <div class="progress-bar-custom" style="width: 80%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400">
+        <div class="skill-card">
+          <i class="bi bi-gear text-primary mb-3" style="font-size: 2rem;"></i>
+          <h5>Tools</h5>
+          <p>Docker · Jenkins · Automation</p>
+          <div class="progress mt-2">
+            <div class="progress-bar-custom" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Projects</h2>
+    <div class="row g-4">
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="card p-4 h-100 project-card">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="fw-bold">AWS Auto Scaling Web Application</h5>
+            <span class="badge bg-primary">AWS</span>
+          </div>
+          <ul class="styled-list mb-4">
+            <li>Designed highly available architecture using EC2 Auto Scaling Groups</li>
+            <li>Automated Apache installation with Bash scripts</li>
+            <li>Implemented security groups and health checks across AZs</li>
+          </ul>
+          <div class="mt-auto">
+            <a href="https://github.com/JasonMoyo" target="_blank" class="btn-custom btn-sm">
+              View on GitHub <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="card p-4 h-100 project-card">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="fw-bold">E-Commerce Deployment on AWS</h5>
+            <span class="badge bg-success">DevOps</span>
+          </div>
+          <ul class="styled-list mb-4">
+            <li>Deployed functional e-commerce website on AWS EC2</li>
+            <li>Managed updates and version control using GitHub</li>
+            <li>Implemented CI/CD pipeline basics</li>
+          </ul>
+          <div class="mt-auto">
+            <a href="https://github.com/JasonMoyo" target="_blank" class="btn-custom btn-sm">
+              View on GitHub <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="card p-4 h-100 project-card">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="fw-bold">Smart Motion Alarm System</h5>
+            <span class="badge bg-warning text-dark">IoT</span>
+          </div>
+          <ul class="styled-list mb-4">
+            <li>Arduino-based motion detection security system</li>
+            <li>Triggered alarm and LED indicators</li>
+            <li>Real-time monitoring and alerts</li>
+          </ul>
+          <div class="mt-auto">
+            <a href="https://github.com/JasonMoyo/Smart-motion-alarm-system" target="_blank" class="btn-custom btn-sm">
+              View on GitHub <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="card p-4 h-100 project-card">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="fw-bold">Student Attendance Tracker</h5>
+            <span class="badge bg-info">Java</span>
+          </div>
+          <ul class="styled-list mb-4">
+            <li>Java-based attendance management system</li>
+            <li>Applied OOP principles and teamwork</li>
+            <li>Database integration and reporting</li>
+          </ul>
+          <div class="mt-auto">
+            <a href="https://github.com/JasonMoyo/ABC-Medicos-pharmacy" target="_blank" class="btn-custom btn-sm">
+              View on GitHub <i class="bi bi-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+    <div class="row g-4">
+
+      <!-- AWS Cloud Practitioner -->
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="card certification-card p-4">
+          <span class="cert-badge">AWS</span>
+          <div class="text-center mb-3">
+            <i class="bi bi-award text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h5 class="text-center">AWS Cloud Practitioner Essentials</h5>
+          <p class="text-muted text-center">Amazon Web Services</p>
+          <div class="text-center mt-3">
+            <a href="certificates/aws-cp.pdf"
+           target="_blank" class="btn btn-outline-primary btn-sm">
+
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS File Systems -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card certification-card p-4">
+          <span class="cert-badge">AWS</span>
+          <div class="text-center mb-3">
+            <i class="bi bi-hdd-network text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h5 class="text-center">AWS SimuLearn: File Systems</h5>
+          <p class="text-muted text-center">Amazon Web Services</p>
+          <div class="text-center mt-3">
+            <a href="certificates/aws-file-systems.pdf"
+               target="_blank" class="btn btn-outline-primary btn-sm">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS Networking -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card certification-card p-4">
+          <span class="cert-badge">AWS</span>
+          <div class="text-center mb-3">
+            <i class="bi bi-diagram-3 text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h5 class="text-center">AWS SimuLearn: Networking</h5>
+          <p class="text-muted text-center">Amazon Web Services</p>
+          <div class="text-center mt-3">
+            <a href="certificates/aws-networking.pdf"
+               target="_blank" class="btn btn-outline-primary btn-sm">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Python for Everybody -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="card certification-card p-4">
+          <span class="cert-badge">Python</span>
+          <div class="text-center mb-3">
+            <i class="bi bi-braces text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h5 class="text-center">Python for Everybody</h5>
+          <p class="text-muted text-center">University of Michigan · Coursera</p>
+          <div class="text-center mt-3">
+            <a href="certificates/python-for-everybody.pdf"
+               target="_blank" class="btn btn-outline-primary btn-sm">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- HackFest -->
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="card certification-card p-4">
+          <span class="cert-badge">Security</span>
+          <div class="text-center mb-3">
+            <i class="bi bi-shield-check text-primary" style="font-size: 3rem;"></i>
+          </div>
+          <h5 class="text-center">Cyber Security HackFest 2025</h5>
+          <p class="text-muted text-center">HackFest</p>
+          <div class="text-center mt-3">
+            <a href="certificates/hackfest-2025.pdf"
+               target="_blank" class="btn btn-outline-primary btn-sm">
+              View Certificate
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS Developer Fundamentals – MindLuster -->
+<div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+  <div class="card certification-card p-4 h-100">
+    <span class="cert-badge">AWS</span>
+    <div class="text-center mb-3">
+      <i class="bi bi-cloud-check text-primary" style="font-size: 3rem;"></i>
+    </div>
+    <h5 class="text-center">AWS Developer Fundamentals</h5>
+    <p class="text-muted text-center">MindLuster</p>
+    <div class="text-center mt-3">
+      <a href="certificates/Mindluster-Certificate-aws-dev.pdf"
+         target="_blank"
+         class="btn btn-outline-primary btn-sm">
+        View Certificate
+      </a>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Experience</h2>
+
+    <div class="card p-4" data-aos="fade-up">
+      <div class="timeline-item">
+        <h5 class="fw-bold">Cloud Computing & DevOps Trainee</h5>
+        <p class="text-muted mb-1">TechCadd, India</p>
+        <p class="small text-muted">Jan 2026 – July 2026</p>
+
+        <ul class="styled-list mt-3">
+          <li>Hands-on AWS services: EC2, S3, IAM, Auto Scaling</li>
+          <li>Linux server management and deployment</li>
+          <li>Git & GitHub version control workflows</li>
+          <li>CI/CD fundamentals and automation basics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Education</h2>
+
+    <div class="card p-4" data-aos="fade-up">
+      <div class="timeline-item">
+        <h5 class="fw-bold">Diploma in Computer Science & Engineering</h5>
+        <p class="text-muted mb-1">Lovely Professional University, Punjab, India</p>
+        <p class="small text-muted">2023 – Present</p>
+      </div>
+
+      <div class="timeline-item mt-4">
+        <h5 class="fw-bold">High School</h5>
+        <p class="text-muted mb-1">Gifford High School, Zimbabwe</p>
+        <p class="small text-muted">Completed: 2019</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="card p-5">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="contact-info">
+                <i class="bi bi-envelope"></i>
+                <div>
+                  <h6>Email</h6>
+                  <a href="mailto:Thabani070801@gmail.com" class="text-decoration-none">Thabani070801@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-info">
+                <i class="bi bi-phone"></i>
+                <div>
+                  <h6>Phone</h6>
+                  <a href="tel:+917901887838" class="text-decoration-none">+91 7901887838</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="contact-info">
+                <i class="bi bi-geo-alt"></i>
+                <div>
+                  <h6>Location</h6>
+                  <p>Phagwara, Punjab, India</p>
+                </div>
+              </div>
+              <div class="contact-info">
+                <i class="bi bi-clock"></i>
+                <div>
+                  <h6>Availability</h6>
+                  <p>Open to opportunities</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-center mt-5">
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="https://github.com/JasonMoyo" target="_blank" class="btn btn-dark">
+                <i class="bi bi-github me-2"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/thabani-moyo-170750326" target="_blank" class="btn btn-primary">
+                <i class="bi bi-linkedin me-2"></i> LinkedIn
+              </a>
+              <a href="tel:+917901887838" class="btn btn-success">
+                <i class="bi bi-phone me-2"></i> Call
+              </a>
+              <a href="https://wa.me/917901887838" target="_blank" class="btn btn-success">
+                <i class="bi bi-whatsapp me-2"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="text-center py-4 bg-dark text-white">
+  <div class="container">
+    <p class="mb-0">© 2026 Thabani Jason Moyo · Cloud & DevOps Portfolio</p>
+    <p class="text-muted mt-2">Built with passion for Cloud Technology</p>
+  </div>
+</footer>
+
+<!-- FLOATING CONTACT BAR -->
+<div class="floating-bar">
+  <a href="tel:+917901887838" title="Call">
+    <i class="bi bi-phone"></i>
+  </a>
+  <a href="https://wa.me/917901887838" target="_blank" title="WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="https://github.com/JasonMoyo" target="_blank" title="GitHub">
+    <i class="bi bi-github"></i>
+  </a>
+  <a href="mailto:Thabani070801@gmail.com" title="Email">
+    <i class="bi bi-envelope"></i>
+  </a>
+  <button id="darkToggle" title="Toggle Dark Mode">
+    <i class="bi bi-moon"></i>
+  </button>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS Animation -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script>
+  // Initialize AOS
+  AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
+  });
+
+  // Dark Mode Toggle
+  const toggle = document.getElementById('darkToggle');
+  const icon = toggle.querySelector('i');
+  
+  toggle.onclick = () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+      icon.className = 'bi bi-sun';
+      toggle.setAttribute('title', 'Switch to Light Mode');
+    } else {
+      icon.className = 'bi bi-moon';
+      toggle.setAttribute('title', 'Switch to Dark Mode');
+    }
+  };
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      // Skip if href is "#" only
+      if (this.getAttribute('href') === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+</script>
+</body>
